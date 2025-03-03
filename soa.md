@@ -13,6 +13,134 @@
 - レガシーシステムの段階的な刷新
 - 大規模システムの管理容易性向上
 
+## 概要・特徴
+
+### 概要
+
+Service-Oriented Architecture（SOA）は、ビジネス機能を独立したサービスとして設計・実装するアーキテクチャパターンです。各サービスは標準化されたインターフェースを通じて通信し、Enterprise Service Bus（ESB）などのミドルウェアを介して連携します。SOAの主な目標は、ビジネス機能の再利用性を高め、システム間の統合を容易にすることです。
+
+### 特徴
+
+#### サービスの自律性
+各サービスは独立して開発・デプロイ・運用可能です。これにより、個々のサービスを独立してスケーリングしたり、異なる技術スタックで開発したりすることができます。
+
+#### 標準インターフェース
+通常、SOAP、REST、XML、JSONなどの標準プロトコルを使用して、サービス間の通信を実現します。これにより、異なるプラットフォームやプログラミング言語間での相互運用性が向上します。
+
+#### 疎結合
+サービス間の依存関係を最小限に抑える設計を採用しています。各サービスは独立して進化でき、一つのサービスの変更が他のサービスに影響を与えにくくなります。
+
+#### 抽象化
+実装の詳細を隠蔽し、インターフェースを通じて機能を提供します。クライアントはサービスの内部実装を知る必要がなく、定義されたインターフェースのみを通じて機能を利用できます。
+
+#### 再利用性
+ビジネス機能を複数のアプリケーションで再利用可能です。一度開発したサービスはエンタープライズ全体で共有され、重複開発を防止します。
+
+#### ディスカバリ
+サービスレジストリを通じたサービスの検出機能を提供します。これにより、クライアントは必要なサービスを動的に見つけ出すことができます。
+
+#### オーケストレーション
+複数のサービスを組み合わせたビジネスプロセスの実現が可能です。ESBなどのミドルウェアを使用して、複雑なワークフローを効率的に管理できます。
+
+### 概要図
+
+```mermaid
+classDiagram
+    class Client {
+        +request()
+        +handleResponse()
+    }
+    note for Client "クライアント
+• リクエスト送信
+• レスポンス処理
+• サービス利用"
+
+    class ESB {
+        +routeRequest()
+        +transformMessage()
+        +orchestrate()
+    }
+    note for ESB "エンタープライズサービスバス
+• メッセージルーティング
+• メッセージ変換
+• オーケストレーション"
+
+    class ServiceRegistry {
+        +register()
+        +discover()
+        +manage()
+    }
+    note for ServiceRegistry "サービスレジストリ
+• サービス登録
+• サービス検索
+• サービス管理"
+
+    class BusinessService {
+        +processRequest()
+        +provideService()
+        +manageState()
+    }
+    note for BusinessService "ビジネスサービス
+• ビジネスロジック
+• サービス提供
+• 状態管理"
+
+    class DataService {
+        +store()
+        +retrieve()
+        +transform()
+    }
+    note for DataService "データサービス
+• データ保存
+• データ取得
+• データ変換"
+
+    class IntegrationService {
+        +connect()
+        +adapt()
+        +mediate()
+    }
+    note for IntegrationService "統合サービス
+• 外部接続
+• アダプテーション
+• 仲介"
+
+    Client --> ESB
+    ESB --> ServiceRegistry
+    ESB --> BusinessService
+    ESB --> DataService
+    ESB --> IntegrationService
+    BusinessService --> DataService
+    BusinessService --> IntegrationService
+
+    %% スタイル定義
+    style Client fill:#1a237e,stroke:#7986cb,stroke-width:2px,color:#ffffff
+    style ESB fill:#1b5e20,stroke:#81c784,stroke-width:2px,color:#ffffff
+    style ServiceRegistry fill:#b71c1c,stroke:#ef5350,stroke-width:2px,color:#ffffff
+    style BusinessService fill:#f57f17,stroke:#ffb74d,stroke-width:2px,color:#ffffff
+    style DataService fill:#4a148c,stroke:#9c27b0,stroke-width:2px,color:#ffffff
+    style IntegrationService fill:#004d40,stroke:#26a69a,stroke-width:2px,color:#ffffff
+```
+
+## 類似パターンとの比較
+
+- [Microservices Architecture（マイクロサービスアーキテクチャ）](microservices.md): SOA は大きめのサービス単位と中央集権的な制御を特徴とし、Microservices はより小さく独立したサービスを推奨します。
+- [Event-Driven Architecture（イベント駆動アーキテクチャ）](event-driven-architecture.md): SOA はサービス間の直接的な通信を基本とし、Event-Driven Architecture はイベントを介した疎結合な通信を重視します。
+- [Layered Architecture（レイヤードアーキテクチャ）](layered-architecture.md): SOA はサービス単位での分割を重視し、Layered Architecture は機能の階層による分割を重視します。
+
+## 利用されているライブラリ／フレームワークの事例
+
+- [Apache CXF](https://github.com/apache/cxf): Web サービスフレームワークとしてサービス指向アーキテクチャを実現
+- [Spring Web Services](https://github.com/spring-projects/spring-ws): SOAP ベースの Web サービス開発を支援
+- [WSO2 Enterprise Service Bus](https://github.com/wso2/product-ei): エンタープライズサービスバスとしてサービス間の通信を制御
+
+## 解説ページリンク
+
+- [Service-Oriented Architecture - Microsoft Azure Architecture](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/soa)
+- [What is Service-Oriented Architecture? - IBM](https://www.ibm.com/cloud/learn/soa)
+- [Service-Oriented Architecture - Wikipedia](https://en.wikipedia.org/wiki/Service-oriented_architecture)
+- [Understanding Service-Oriented Architecture - MSDN](https://msdn.microsoft.com/library/aa480021.aspx)
+
 ## コード例
 
 ### Before:
@@ -321,95 +449,3 @@ class OrderProcessingOrchestrator {
     }
   }
 }
-
-### 概要図
-
-```mermaid
-classDiagram
-    class Client {
-        +request()
-        +handleResponse()
-    }
-    note for Client "クライアント
-• リクエスト送信
-• レスポンス処理
-• サービス利用"
-
-    class ESB {
-        +routeRequest()
-        +transformMessage()
-        +orchestrate()
-    }
-    note for ESB "エンタープライズサービスバス
-• メッセージルーティング
-• メッセージ変換
-• オーケストレーション"
-
-    class ServiceRegistry {
-        +register()
-        +discover()
-        +manage()
-    }
-    note for ServiceRegistry "サービスレジストリ
-• サービス登録
-• サービス検索
-• サービス管理"
-
-    class BusinessService {
-        +processRequest()
-        +provideService()
-        +manageState()
-    }
-    note for BusinessService "ビジネスサービス
-• ビジネスロジック
-• サービス提供
-• 状態管理"
-
-    class DataService {
-        +store()
-        +retrieve()
-        +transform()
-    }
-    note for DataService "データサービス
-• データ保存
-• データ取得
-• データ変換"
-
-    class IntegrationService {
-        +connect()
-        +adapt()
-        +mediate()
-    }
-    note for IntegrationService "統合サービス
-• 外部接続
-• アダプテーション
-• 仲介"
-
-    Client --> ESB
-    ESB --> ServiceRegistry
-    ESB --> BusinessService
-    ESB --> DataService
-    ESB --> IntegrationService
-    BusinessService --> DataService
-    BusinessService --> IntegrationService
-
-    %% スタイル定義
-    style Client fill:#1a237e,stroke:#7986cb,stroke-width:2px,color:#ffffff
-    style ESB fill:#1b5e20,stroke:#81c784,stroke-width:2px,color:#ffffff
-    style ServiceRegistry fill:#b71c1c,stroke:#ef5350,stroke-width:2px,color:#ffffff
-    style BusinessService fill:#f57f17,stroke:#ffb74d,stroke-width:2px,color:#ffffff
-    style DataService fill:#4a148c,stroke:#9c27b0,stroke-width:2px,color:#ffffff
-    style IntegrationService fill:#004d40,stroke:#26a69a,stroke-width:2px,color:#ffffff
-```
-
-## 類似パターンとの比較
-
-- [Microservices Architecture（マイクロサービスアーキテクチャ）](microservices.md): SOA は大きめのサービス単位と中央集権的な制御を特徴とし、Microservices はより小さく独立したサービスを推奨します。
-- [Event-Driven Architecture（イベント駆動アーキテクチャ）](event-driven-architecture.md): SOA はサービス間の直接的な通信を基本とし、Event-Driven Architecture はイベントを介した疎結合な通信を重視します。
-- [Layered Architecture（レイヤードアーキテクチャ）](layered-architecture.md): SOA はサービス単位での分割を重視し、Layered Architecture は機能の階層による分割を重視します。
-
-## 利用されているライブラリ／フレームワークの事例
-
-- [Apache CXF](https://github.com/apache/cxf): Web サービスフレームワークとしてサービス指向アーキテクチャを実現
-- [Spring Web Services](https://github.com/spring-projects/spring-ws): SOAP ベースの Web サービス開発を支援
-- [WSO2 Enterprise Service Bus](https://github.com/wso2/product-ei): エンタープライズサービスバスとしてサービス間の通信を制御

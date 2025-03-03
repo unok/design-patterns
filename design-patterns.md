@@ -110,6 +110,7 @@
 - [Repository (リポジトリ)](repository.md)
 - [Data Access Object (DAO)](dao.md)
 - [Unit of Work (ユニットオブワーク)](unit-of-work.md)
+- [Identity Map (アイデンティティマップ)](identity-map.md)
 - [Domain Model (ドメインモデル)](domain-model.md)
 - [Table Module (テーブルモジュール)](table-module.md)
 - [Transaction Script (トランザクションスクリプト)](transaction-script.md)
