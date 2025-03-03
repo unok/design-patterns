@@ -95,7 +95,7 @@ classDiagram
 
 ## 類似パターンとの比較
 
-- [Dependency Injection (依存性注入)](dependency-injection.md): Service Locator はサービスを中央レジストリから取得し、これに対して Dependency Injection は外部から依存関係を注入します。
+- [Dependency Injection (依存性注入)](di.md): Service Locator はサービスを中央レジストリから取得し、これに対して Dependency Injection は外部から依存関係を注入します。
 - [Factory Method (ファクトリーメソッド)](factory-method.md): Service Locator はサービスの検索と取得を行い、これに対して Factory Method はオブジェクトの生成を抽象化します。
 - [Registry (レジストリ)](registry.md): Service Locator はサービスの検索と取得を行い、これに対して Registry は設定や状態を管理します。
 

@@ -335,6 +335,8 @@ class ProductDetailsScreen {
 - [API Gateway（APIゲートウェイ）](gateway.md): Gateway Aggregationはデータの集約に特化し、API Gatewayはルーティングや認証など、より広範な機能を提供します。
 - [Backends for Frontends（BFF）](bff.md): Gateway Aggregationは汎用的なデータ集約を行い、BFFは特定のクライアントに最適化されたAPIを提供します。
 - [Facade（ファサード）](facade.md): Gateway Aggregationはマイクロサービス間のデータ集約に焦点を当て、Facadeはサブシステムの複雑性を隠蔽します。
+- [Gateway Offloading（ゲートウェイオフローディング）](gateway-offloading.md): Gateway Aggregationはデータの集約に焦点を当て、Gateway Offloadingは共通機能の実装を担います。
+- [Gateway Routing（ゲートウェイルーティング）](gateway-routing.md): Gateway Aggregationはデータの集約に焦点を当て、Gateway Routingはリクエストの転送に特化します。
 
 ## 利用されているライブラリ／フレームワークの事例
 

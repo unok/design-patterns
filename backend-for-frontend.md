@@ -113,13 +113,11 @@ classDiagram
 
 ## 類似パターンとの比較
 
-- [API Gateway](api-gateway.md)
-  - APIゲートウェイは汎用的なAPIを提供するのに対して、BFFはクライアント特化型のAPIを提供する
-  - APIゲートウェイは共通機能を提供するのに対して、BFFはクライアント固有の機能を提供する
-
-- [Facade](facade.md)
-  - Facadeはシステムの内部複雑性を隠蔽するのに対して、BFFはクライアント固有の要件に対応する
-  - Facadeは単一のインターフェースを提供するのに対して、BFFはクライアントごとに異なるインターフェースを提供する
+- [API Gateway](api-gateway.md): BFFはクライアント特化型のAPIを提供するのに対して、APIゲートウェイは汎用的なAPIを提供します。
+- [Facade](facade.md): BFFはクライアント固有の要件に対応するのに対して、Facadeはシステムの内部複雑性を隠蔽します。
+- [Gateway Offloading](gateway-offloading.md): BFFはクライアント固有の機能を提供するのに対して、Gateway Offloadingは共通機能の実装を担います。
+- [Gateway Routing](gateway-routing.md): BFFはクライアント固有の要件に対応するのに対して、Gateway Routingはリクエストの転送に特化します。
+- [Gateway Aggregation](gateway-aggregation.md): BFFはクライアント固有のデータ集約を行うのに対して、Gateway Aggregationは汎用的なデータ集約を行います。
 
 ## 利用されているライブラリ／フレームワークの事例
 

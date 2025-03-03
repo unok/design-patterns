@@ -455,7 +455,7 @@ class LoadBalancer {
 
 - [Gateway Aggregation（ゲートウェイ集約）](gateway-aggregation.md): Gateway Routingはリクエストの転送に焦点を当て、Gateway Aggregationは複数のサービスからのレスポンスの集約を行います。
 - [Gateway Offloading（ゲートウェイオフローディング）](gateway-offloading.md): Gateway Routingはルーティングに特化し、Gateway Offloadingは共通機能の実装を担います。
-- [Backends for Frontends（BFF）](bff.md): Gateway Routingは汎用的なルーティングを提供し、BFFは特定のクライアントに最適化されたAPIを提供します。
+- [Backends for Frontends（BFF）](backend-for-frontend.md): Gateway Routingは汎用的なルーティングを提供し、BFFは特定のクライアントに最適化されたAPIを提供します。
 
 ## 利用されているライブラリ／フレームワークの事例
 

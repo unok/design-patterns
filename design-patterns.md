@@ -73,9 +73,9 @@
 ### 2. 統合パターン
 
 #### ゲートウェイ
+- [Gateway (ゲートウェイ)](gateway.md)
 - [API Gateway (APIゲートウェイ)](api-gateway.md)
 - [Backend for Frontend (BFF)](backend-for-frontend.md)
-- [Backends for Frontends (BFF)](bff.md)
 - [Anti-Corruption Layer (腐敗防止層)](anti-corruption-layer.md)
 
 #### マイクロサービス連携
@@ -115,6 +115,8 @@
 - [Table Module (テーブルモジュール)](table-module.md)
 - [Transaction Script (トランザクションスクリプト)](transaction-script.md)
 - [Registry (レジストリ)](registry.md)
+- [Aggregate (集約)](aggregate.md)
+- [Data Transfer Object (DTO)](dto.md)
 
 ### 6. メッセージングパターン
 
@@ -145,3 +147,4 @@
 - [Entity (エンティティ)](entity.md)
 - [Specification (仕様)](specification.md)
 - [Dependency Injection (依存性注入)](di.md)
+- [Immutable (不変)](immutable.md)

@@ -400,7 +400,7 @@ class UserService {
 
 - [Gateway Routing（ゲートウェイルーティング）](gateway-routing.md): Gateway Offloadingは共通機能の実装に焦点を当て、Gateway Routingはリクエストの転送に特化します。
 - [Gateway Aggregation（ゲートウェイ集約）](gateway-aggregation.md): Gateway Offloadingは共通機能の実装を担い、Gateway Aggregationは複数のサービスからのレスポンスの集約を行います。
-- [Backends for Frontends（BFF）](bff.md): Gateway Offloadingは共通機能の実装を提供し、BFFは特定のクライアントに最適化されたAPIを提供します。
+- [Backends for Frontends（BFF）](backend-for-frontend.md): Gateway Offloadingは共通機能の実装を提供し、BFFは特定のクライアントに最適化されたAPIを提供します。
 
 ## 利用されているライブラリ／フレームワークの事例
 

@@ -167,6 +167,8 @@ classDiagram
 - [Adapter (アダプター)](adapter.md): Facade は複雑なインターフェースをシンプルにし、これに対して Adapter は互換性のないインターフェースを変換します。
 - [Mediator (メディエーター)](mediator.md): Facade はサブシステムへの一方向の通信を提供し、これに対して Mediator はオブジェクト間の双方向の通信を調整します。
 - [Proxy (プロキシ)](proxy.md): Facade はインターフェースを簡素化し、これに対して Proxy はアクセス制御を提供します。
+- [Backend for Frontend（BFF）](backend-for-frontend.md): Facadeはシステムの内部複雑性を隠蔽するのに対して、BFFはクライアント固有の要件に対応します。
+- [Gateway Aggregation（ゲートウェイ集約）](gateway-aggregation.md): Facadeはサブシステムの複雑性を隠蔽するのに対して、Gateway Aggregationはマイクロサービス間のデータ集約に焦点を当てます。
 
 ## 利用されているライブラリ／フレームワークの事例
 
